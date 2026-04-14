@@ -37,8 +37,6 @@ target/
 *.iml
 out/
 
-# --- SEGURANÇA: ESCONDER DADOS SENSÍVEIS ---
-# Ignora o arquivo que contém a senha do seu banco de dados
 src/main/resources/META-INF/persistence.xml
 
 # Arquivos temporários e logs

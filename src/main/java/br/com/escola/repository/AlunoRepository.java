@@ -1,5 +1,4 @@
 package br.com.escola.repository;
-
 import br.com.escola.model.Aluno;
 import jakarta.persistence.EntityManager;
 import java.util.List;
@@ -29,5 +28,9 @@ public class AlunoRepository {
         } catch (Exception e) {
             return null; // Caso não encontre o aluno
         }
+    }
+
+    public Aluno buscarPorId(Long id) {
+        return em.find(Aluno.class, id);
     }
 }
