@@ -24,4 +24,10 @@ public class CursoRepository {
     public Curso buscarPorId(Long id) {
         return em.find(Curso.class, id);
     }
+
+    public List<Curso> buscarPorNome(String nome) {
+        return em.createQuery("SELECT c FROM Curso c WHERE LOWER(c.nome) LIKE LOWER(:nome)", Curso.class)
+                .setParameter("nome", "%" + nome + "%")
+                .getResultList();
+    }
 }

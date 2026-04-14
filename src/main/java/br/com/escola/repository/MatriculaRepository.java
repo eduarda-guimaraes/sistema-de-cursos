@@ -22,4 +22,12 @@ public class MatriculaRepository {
         return em.createQuery("SELECT m FROM Matricula m JOIN FETCH m.aluno JOIN FETCH m.curso", Matricula.class)
                 .getResultList();
     }
+
+    public List<Matricula> listarPorCurso(Long cursoId) {
+        return em.createQuery(
+                        "SELECT m FROM Matricula m JOIN FETCH m.aluno WHERE m.curso.id = :cursoId",
+                        Matricula.class)
+                .setParameter("cursoId", cursoId)
+                .getResultList();
+    }
 }

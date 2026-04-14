@@ -39,4 +39,9 @@ public class Matricula {
     public void setCurso(Curso curso) { this.curso = curso; }
     public LocalDate getDataMatricula() { return dataMatricula; }
     public void setDataMatricula(LocalDate dataMatricula) { this.dataMatricula = dataMatricula; }
+    public String getDataFormatada() {
+        if (this.dataMatricula == null) return "Sem data";
+        java.time.format.DateTimeFormatter fmt = java.time.format.DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return this.dataMatricula.format(fmt);
+    }
 }
